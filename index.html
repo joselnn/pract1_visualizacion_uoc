@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis de salud mental</title>
+
+    <!-- Para fórmulas con Latex -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        figure {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        figcaption {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .conclusion {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 5px solid #333;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<h1>Análisis de salud mental en el entorno laboral
+</h1>
+<p>  La salud mental se ha convertido en uno de los grandes retos contemporáneos, 
+  especialmente en el ámbito laboral. Estrés, falta de sueño, ansiedad y productividad 
+  forman un ecosistema que afecta directamente a la calidad de vida de las personas. 
+  El objetivo de este proyecto es explorar las relaciones entre estos factores y tratar 
+  de identificar qué perfiles presentan mayor riesgo de problemas de salud mental.
+</p>
+<nav style="max-width: 900px; margin: 2rem auto; font-family: Arial, sans-serif;">
+  
+  <h2 style="margin-bottom: 1rem;">Índice</h2>
+
+  <ol style="line-height: 1.8;">
+    <li>
+      <a href="#analisis-poblacion" style="text-decoration: none; color: #333;">
+        ¿Cómo es la población del estudio?
+      </a>
+    </li>
+    <li>
+      <a href="#factores-riesgo" style="text-decoration: none; color: #333;">
+        ¿Qué factores aumentan el riesgo para la salud mental?
+      </a>
+    </li>
+    <li>
+      <a href="#analisis-correlaciones" style="text-decoration: none; color: #333;">
+        ¿Qué factores aumentan el riesgo para la salud mental?
+      </a>
+    </li>
+    <li>
+      <a href="#conclusiones" style="text-decoration: none; color: #333;">
+        Conclusiones finales
+      </a>
+    </li>
+
+  </ol>
+
+</nav>
+<p style="color: #666; margin-top: -0.5rem;">
+
+</p>
+
+
+<section id="analisis-poblacion">
+    <h2>1. ¿Cómo es la población del estudio?</h2>
+
+    <p> A continuación trataremos de entender las características de la población objeto del 
+      estudio. De esta manera podremos comprender mejor los resultados.
+    </p>
+
+    <p>
+    La siguiente gráfica muestra la <strong>distribución en función del rango de edad y el estatus laboral</strong>, 
+    permitiendo además filtrar por género. Se observa que la categoría <strong>“Employed” concentra claramente 
+    la mayor parte de los casos</strong> en casi todos los grupos de edad. La <strong>distribución por edad y género es 
+    relativamente equilibrada en los tramos centrales</strong>, mientras que los extremos (15–24 y 65+) presentan 
+    menor representación, lo que sugiere una participación más reducida de personas muy jóvenes o de edad avanzada.
+    </p>
+
+    <figure>
+      <div class="flourish-embed flourish-chart" data-src="visualisation/27147308"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/27147308/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+        <figcaption>
+            Figura 1. Distribución según género y estatus laboral.
+        </figcaption>
+    </figure>
+
+    <p>
+    La siguiente gráfica se incluye para visualizar de manera más simple la distribución del número de muestras por edades.
+    </p>
+
+      <figure>
+      <div class="flourish-embed flourish-chart" data-src="visualisation/27147763"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/27147763/thumbnail" width="100%" alt="chart visualization" /></noscript></div> 
+        <figcaption>
+            Figura 2. Histograma de los rangos de edades.
+        </figcaption>
+    </figure>
+
+    <p>
+      Como ya se había anticipado, la distribución es homogénea en los tramos centrales de edad, mientras que se tienen pocas muestras entre
+      la población de más de 65 años, y también entre las personas más jóvenes entre 15 y 24 años.
+    </p>
+
+
+    <div class="conclusion">
+        <p>
+          En conjunto, ambas visualizaciones confirman que <strong>la muestra está compuesta mayoritariamente por personas en edad laboral activa, 
+          con una fuerte presencia de individuos empleados</strong> y una distribución relativamente equilibrada entre géneros en los tramos 
+          intermedios. Los grupos extremos de edad (15–24 y 65+) aparecen menos representados, por lo que los resultados del análisis 
+          estarán especialmente centrados en la población adulta en edad de trabajar.
+        </p>
+    </div>
+</section>
+
+<section id="factores-riesgo">
+    <h2>2. ¿Qué factores aumentan el riesgo para la salud mental?</h2>
+
+    <p> 
+      Para identificar qué factores están más asociados a un riesgo alto de problemas de salud mental, se ha aplicado un modelo de 
+      <strong>regresión logística</strong>. Este tipo de modelo permite estimar la probabilidad de pertenecer a un grupo (en este caso, riesgo alto 
+      frente al resto) a partir de distintas variables explicativas. Antes del ajuste, las variables cuantitativas han sido estandarizadas, 
+      de manera que todas quedaran en la misma escala. Esto permite comparar directamente los coeficientes obtenidos y <strong>evaluar la 
+      importancia relativa de cada factor en la predicción del riesgo</strong>.
+    </p>
+
+    <p>
+      El gráfico muestra los coeficientes obtenidos para cada una de las variables incluidas 
+      en el modelo. Las barras horizontales representan la magnitud y el signo del efecto de cada variable sobre la probabilidad de 
+      presentar un riesgo alto de salud mental. <strong>Los coeficientes positivos indican una asociación directa con el riesgo</strong>, 
+      mientras que los coeficientes negativos representan una una disminución de dicha probabilidad.
+    </p>
+
+    <figure>
+      <div class="flourish-embed" data-src="story/3548641"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/story/3548641/thumbnail" width="100%" alt="visualization" /></noscript></div>
+        <figcaption>
+            Figura 3. Resultados de la regresión logística.
+        </figcaption>
+    </figure>
+
+
+    <div class="conclusion">
+        <p>
+          Los resultados confirman que los factores con mayor impacto en el riesgo alto de salud mental siguen siendo la depresión y la 
+          ansiedad, con coeficientes de 13.54 y 9.96, que se traducen en odds ratios extremadamente elevados (más de 750.000 y 21.000 
+          respectivamente). Esto indica que aumentos en estas puntuaciones multiplican de forma muy significativa la probabilidad de riesgo. 
+          La baja productividad también aparece como factor relevante, con un coeficiente negativo de –0.63 (odds ratio 0.53), sugiriendo
+          un efecto protector. Variables sociales y laborales (género, modalidad de trabajo o situación de empleo) muestran efectos 
+          pequeños y secundarios. Llama la atención que <strong>haber buscado tratamiento tiene un ligero efecto positivo sobre el riesgo</strong>, 
+          probablemente porque quienes se sienten peor tienden precisamente a buscar ayuda (las personas que ya presentan mayor malestar o síntomas 
+          son precisamente las que tienen más probabilidad de buscar ayuda).
+        </p>
+    </div>
+</section>
+
+<section id="analisis-correlaciones">
+    <h2>3. Análisis de correlaciones</h2>
+
+    <p> En esta última escena presentamos un heatmap de correlaciones que resume las relaciones entre todas las variables del conjunto 
+      de datos, incluyendo tanto las continuas (como ansiedad, depresión, estrés, sueño y productividad) como las categóricas codificadas 
+      (género, modalidad de trabajo, empleo, historial de salud mental y búsqueda de tratamiento).</p>
+
+    <figure>
+      <div class="flourish-embed flourish-heatmap" data-src="visualisation/27180682"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/27180682/thumbnail" width="100%" alt="heatmap visualization" /></noscript></div>
+        <figcaption>
+            Figura 4. Análisis de correlaciones.
+        </figcaption>
+    </figure>
+
+    <div class="conclusion">
+      <p>
+    El heatmap permite identificar rápidamente qué variables se asocian más fuertemente entre sí. Por ejemplo, se observa que <strong>ansiedad, 
+    depresión y estrés están muy debilmente correlacionadas entre sí</strong>, esto, unido a los resultados del análisis por regresión, muestra que cualquiera 
+    de estas variables puede ser un buen predictor del riesgo de salud mental por si sola.
+    Por otro lado, se observa que <strong>la productividad puede asociarse con un bajo riesgo de salud mental y poca probabilidad de depresión</strong>.
+    </p>
+</section>
+
+<section id="conclusiones">
+    <h2>4. Conclusiones finales</h2>
+
+    <p> Los análisis muestran que, dentro de la población representada, <strong>los factores más determinantes del riesgo alto de salud mental 
+      son claramente la depresión y la ansiedad</strong>, con un efecto muy fuerte sobre la probabilidad de riesgo. La <strong>productividad</strong> también 
+      aparece como un factor relevante, asociándose con menor riesgo, mientras que <strong>variables sociales y laborales</strong>, como edad, 
+      género, modalidad de trabajo o situación de empleo, <strong>tienen un impacto muy limitado</strong>. La búsqueda de tratamiento se correlaciona 
+      con mayor riesgo, probablemente porque quienes presentan síntomas más intensos son los que tienden a buscar ayuda.
+
+      El heatmap de correlaciones confirma que cada variable emocional por sí sola (ansiedad, depresión, estrés) puede ser un buen 
+      predictor del riesgo, mientras que la productividad se asocia con un perfil de menor riesgo.
+
+      Sin embargo, es importante destacar que los datos son <strong>sintéticos</strong>, por lo que muchas relaciones aparecen más uniformes o extremas 
+      de lo que serían en la realidad. Esto <strong>limita la aparición de diferencias significativas entre subgrupos</strong> y reduce la capacidad 
+      de generalización de los hallazgos, aunque no afecta el valor del proyecto como ejercicio de visualización y análisis 
+      exploratorio.</p>
+
+
+
+</body>
+</html>
